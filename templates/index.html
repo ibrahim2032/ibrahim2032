@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    </head>
+
+    
+    <body>
+        <div class="container contact">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <img src="{{ url_for('static', filename='img/pics.jpeg') }}" alt="image" width="250px"/>
+                        <h2>Email Checker</h2>
+                        <h5>Confirm email authenticity</h5>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <form action="{{ url_for('predict')}}" method="post">
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <div class="alert alert-primary" for="comment"  role="alert">{{ prediction_text }}</div>
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" name="body" rows="16" id="comment" placeholder="Enter email here..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">Check Now</button>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
